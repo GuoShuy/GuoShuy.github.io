@@ -2,28 +2,44 @@
 layout: default
 ---
 
-<article class="post">
-  <style>
-    p {
-        text-indent: 2em; /* 设置首行缩进为2个em大小，em是相对于当前字体尺寸的单位 */
-        text-align: justify; /* 设置文本两端对齐 */
+<head>
+<style>
+    .centered {
+        text-align: center;
+    }
+
+    .justified {
+        text-align: justify;
+    }
+
+    .abstract-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .abstract-content {
+        width: 80%; /* 或其他所需的百分比 */
     }
 </style>
-  <h1 style="text-align: center">{{ page.title }}</h1>
-  <h2 style="text-align: center">Symbolic Music Generative Pre-trained Transformer</h2>
+</head>
+
+<article class="post">
+
+  <h1 class="centered">{{ page.title }}</h1>
+  <h2 class="centered">Symbolic Music Generative Pre-trained Transformer</h2>
   <section class="section">
-		<div class="container ">
-			<!-- Abstract. -->
-			<div class="columns is-centered has-text-centered">
-				<div class="column is-four-fifths">
-					<h2 style="text-align: center">Abstract</h2>
-					<div class="content has-text-justified">
-						<p>SMuPT is a series of pre-trained models for symbolic music generation. It was trained on a large-scale dataset of symbolic music, including millions of monophonic and polyphonic pieces from different genres and styles. The models are trained with the LLama2 architecture, and can be further used for downstream music generation tasks such as melody generation, accompaniment generation, and multi-track music generation.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <div class="container">
+      <!-- Abstract. -->
+      <div class="abstract-container">
+        <div class="abstract-content">
+          <h2 class="centered">Abstract</h2>
+          <div class="content justified">
+            <p>SMuPT is a series of pre-trained models for symbolic music generation. It was trained on a large-scale dataset of symbolic music, including millions of monophonic and polyphonic pieces from different genres and styles. The models are trained with the LLama2 architecture, and can be further used for downstream music generation tasks such as melody generation, accompaniment generation, and multi-track music generation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   {% include disqus.html %}
 </article>
