@@ -15,7 +15,3 @@ The details of model architecture of SMuPT-v0 are listed below:
 | SMuPT-v0-8192-345M  | 345M       | 7M x 4 epochs                 | 8192       | 1024        | 24     | 16    |
 | SMuPT-v0-8192-770M  | 770M       | 7M x 3 epochs                 | 8192       | 1280        | 36     | 20    |
 | SMuPT-v0-8192-1.3B  | 1.3B       | 7M x 2.2 epochs               | 8192       | 1536        | 48     | 24    |
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
