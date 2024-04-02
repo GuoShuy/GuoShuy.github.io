@@ -15,6 +15,20 @@ layout: default
 	<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
 <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.qhDXWpKopYk.L.W.O/am=wA/d=0/rs=AN8SPfq5gedF4FIOWZgYyMCNZA5tU966ig/m=el_main_css">
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid black;
+		padding: 8px;
+		text-align: left;
+	}
+	th {
+		background-color: #f2f2f2;
+	}
+</style>
 </head>
 
 
@@ -34,6 +48,49 @@ layout: default
 			</div>
 		</div>
 	</section>
+
+	<div class="is-divider"></div>
+
+	<h2>MuPT Model Variants</h2>
+
+	<table>
+	  <tr>
+		<th>Variant</th>
+		<th>190M</th>
+		<th>505M</th>
+		<th>1.07B</th>
+		<th>1.97B</th>
+		<th>Extra</th>
+	  </tr>
+	  <tr>
+		<td>MuPT-v0-4096</td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-4096-190M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-4096-505M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-4096-1.07B">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-4096-1.97B">Link</a></td>
+		<td></td>
+	  </tr>
+	  <tr>
+		<td>MuPT-v0-8192</td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-8192-190M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-8192-550M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-8192-1.07BM">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v0-8192-1.97B">Link</a></td>
+		<td></td>
+	  </tr>
+	  <tr>
+		<td>MuPT-v1-8192</td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v1-8192-190M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v1-8192-550M">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v1-8192-1.07B">Link</a></td>
+		<td><a href="https://huggingface.co/m-a-p/MuPT-v1-8192-1.97B">Link</a></td>
+		<td></td>
+	  </tr>
+	  <tr>
+		<td>MuPT-v1-8192-1.3B-intermediate-ckpts</td>
+		<td colspan="4"><a href="https://huggingface.co/m-a-p/MuPT-intermediate-ckpts">Link</a></td>
+	  </tr>
+	</table>
 
 	<div class="is-divider"></div>
 
