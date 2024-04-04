@@ -59,7 +59,92 @@ layout: default
 				<div class="column is-four-fifths">
 					<h2 style="text-align: center" class="title is-3">SMS Law</h2>
 					<div class="content has-text-justified">
-						<p>we extend the original discrete formulation to accommodate continuous variables, allowing for a more nuanced understanding of data constraints in varied contexts. The results indicate a promising direction for future research in music generation, offering extensive resources for community-led research through our open-source contributions.</p>
+						<p>
+							A wide range of research underscores a significant pattern in language model performance, indicating a power-law relationship between model performance and the increases in both the number of parameters and the size of the training data. Scaling law plays a pivotal role in advancing large language models (LLMs), offering a framework to predict the optimal configurations for larger models based on the training logs of their smaller counterparts.
+						</p>
+						<p>
+							Further exploration into scaling laws for autoregressive generative modeling broadens the applicability of these laws to include not just textual, but also visual and multimodal tasks, as supported by studies. Such insights are invaluable for developing music generation models, which often blend multiple modalities such as audio, lyrics, and visual elements like album covers or artist photos. This demonstrates a consistent trajectory of performance enhancement concurrent with resource scaling.
+						</p>
+						<p>
+							The research by which involves the repetition of the entire pre-training dataset across multiple epochs, presents promising results yet raises questions regarding its effectiveness for musical data. This uncertainty prompts a need for further research into the impact of data repetition strategy by achieving improved outcomes for models engaged in music-related tasks.
+						</p>
+						<p>
+							<strong>Methods of SMS scaling law:</strong>
+						</p>
+						<ol>
+							<li>
+								<strong>Baseline</strong><br>
+								The Chinchilla Law, proposed by DeepMind, is a scaling law that provides insights into the training of large language models (LLMs). Our experiments reveal that the Chinchilla Law provides a good fit for general cases, where moderate models were trained with a moderate amount of data.
+							</li>
+						</ol>
+						<p>
+							In this research, we used the Chinchilla Law and Data-Constrained law as baselines. The former is a classical baseline in LLMs' training and the latter is crucial to address the constraints faced in scenarios where the volume of available training data does not meet the ideal requisites. This phenomenon is typical in the music domain.
+						</p>
+						<p>
+							To get a better comprehensive of Chinchilla law and Data-constrained Law, please refer 1.1 and 1.2.
+						</p>
+						<p>
+							<strong>1.1 Brief introduction of Chinchilla Law</strong><br>
+							In this part, we focus on the relationship of loss metrics to various resource budgets in deep learning. It is first put forward by the Chinchilla Law as illustrated in Equation 1. This law posits that both training and evaluation losses can be abstracted as a function of model capacity \(N\) and training data size \(D\), thus offering an insight to estimate the best combination of resources to be assigned to training.
+						</p>
+						<p>
+							\[
+							L(N, D) = \frac{A}{N^\alpha} + \frac{B}{D^\beta} + E
+							\]
+						</p>
+						<p>
+							Here, \(L(N,D)\) denotes the loss metric during training or evaluation, which is assumed to exhibit a power-law dependency on \(N\) and \(D\). The parameters \(A\), \(B\), \(E\), \(\alpha\), and \(\beta\) are determined by empirical fitting.
+						</p>
+						<p>
+							<strong>1.2 Brief introduction of Data-constrained Law</strong><br>
+							Complementing the Chinchilla Law, the Data-Constrained Law shows the scaling dynamics of LLMs when facing the data scarcity problem. Here, we strictly refer to the derivation method.
+						</p>
+						<p>
+							Data-constrained law is defined as:
+							\[
+							L\left(N, D, U_D\right)=\frac{A}{N'^\alpha} + \frac{B}{D'^\beta} +E
+							\]
+							where
+							\[
+							\begin{split}
+							& N' = U_N + U_NR_N^\star\left(1-\exp\left(\frac{-R_N}{R_N^\star}\right)\right)\\
+							& D' = U_D + U_DR_D^\star\left(1-\exp\left(\frac{-R_D}{R_D^\star}\right)\right)\\
+							\end{split}
+							\]
+						</p>
+						<p>
+							To get a better understanding of the equation, the definitions of each of the above parameters are as follows: Like Chinchilla Law, \( N \) is defined as the number of model parameters, and \( D \) is defined as the training tokens.
+						</p>
+						<p>
+							\(U_D\) is defined as the number of unique tokens used. For data-constrained law, \( U_D \) is computed as min\{\(D\),\(D_C\)\} given a budget of unique data \(D_c\).
+						</p>
+						<p>
+							\(U_N\) is defined as the number of “unique” parameters that provide an optimal fit for \(U_D\). According to the method mentioned, given the following learned variables, \(\{A,\alpha,B,\beta\,E\}\), the optimal allocation of compute(C) to \(N\) and \(D\) as follows:
+						</p>
+						<p>
+							\[
+							\begin{split}
+							& N_{\text{opt}}(C) = G\left(\frac{C}{6}\right)^a \\
+							& D_{\text{opt}}(C) = G^{-1}\left(\frac{C}{6}\right)^b \\
+							& G = \left(\frac{\alpha A}{\beta B}\right)^{\frac{1}{\alpha+\beta}} \\
+							& a = \frac{\beta}{\alpha+\beta} \\
+							& b = \frac{\alpha}{\alpha+\beta}
+							\end{split}
+							\]
+						</p>
+						<p>
+							Thus, \(U_N\) is equal to min\{\(N_\text{opt}\),\(N\)\}.
+						</p>
+						<p>
+							\( R_D \) is defined as the number of times the data is repeated. When training for a single epoch, \(R_D=0\).
+						</p>
+						<p>
+							\(R_N\) is the number that the ‘unique’ parameters are repeated where \(R_N = \max\{\left(\frac{N}{U_N}\right)-1,0\}\).
+						</p>
+						<p>
+							\(D'\) is defined as the "effective data size": the number of unique data needed to get the same value as repeating \(U\) unique tokens for \(R_D\) repeats. The derivation process is as followed:
+						</p>
+						
 					</div>
 				</div>
 			</div>
