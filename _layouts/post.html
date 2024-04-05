@@ -88,6 +88,8 @@ layout: default
 				<div class="column is-four-fifths">
 					<h2 style="text-align: center" class="title is-3">SMS1 Law</h2>
 					<div class="content has-text-justified">
+						{% raw %}
+
 						<div>
 							<h2>Related work of Scaling Law</h2>
 							<p>A wide range of research underscores a significant pattern in language model performance, indicating a power-law relationship between model performance and the increases in both the number of parameters and the size of the training data. Scaling law plays a pivotal role in advancing large language models (LLMs), offering a framework to predict the optimal configurations for larger models based on the training logs of their smaller counterparts.</p>
@@ -149,7 +151,7 @@ layout: default
 							<p>In our SMS Law experimentation, we initially aim to train a model with a specific number of parameters across epochs on the whole dataset per epoch, achieving a specific loss. Contrary to the predictions of SMS Law, the Chinchilla Law suggests optimal performance for a different parameter model over different epochs. Further, we train a larger parameter model that underscored the SMS Law's predictive accuracy regarding overfitting risks, affirming its value as a strategic guide in scaling up models effectively within fixed computational constraints, beneficial for efficient model scaling decisions.</p>
 						</div>
 						
-						
+						{% endraw %}
 					</div>
 				</div>
 			</div>
