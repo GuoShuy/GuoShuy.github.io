@@ -154,7 +154,12 @@ layout: default
 						<div id="notebook"></div>
 						<script>
 							// 设置 notebookjs 用于渲染 markdown 的渲染器
-							document.addEventListener('DOMContentLoaded', function() {
+							(function() {
+							// 确保 notebookjs 库已加载
+							if (typeof nb === 'undefined') {
+								console.error('nb is not defined. Please make sure notebookjs is loaded correctly.');
+								return;
+							}
 							nb.markdown = marked;
 					
 							fetch('https://raw.githubusercontent.com/GuoShuy/guoshuy.github.io/master/SMS_LAWS.ipynb')
@@ -168,7 +173,7 @@ layout: default
 									console.error('Error loading the notebook:', error);
 									document.getElementById('notebook').innerHTML = '<p>Error loading notebook. See console for details.</p>';
 								});
-							});
+							})();
 						</script>
 					</div>
 				</div>
