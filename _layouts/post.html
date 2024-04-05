@@ -14,7 +14,12 @@ layout: default
 	<!-- The following needs to be inserted somewhere on the page for the player(s) to work. -->
 	<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
-
+	<style>
+	.superscript {
+		vertical-align: super;
+		font-size: smaller;
+	}
+	</style>
 	<script>
 		MathJax = {
 		  tex: {
@@ -75,7 +80,7 @@ layout: default
 					<div class="content has-text-justified">
 						<h3 style="text-align: center" class="title is-4">Corresponding Authors</h3>
 						<p style="text-align: center">
-							Wenhu Chen<sup>1</sup>, Jie Fu<sup>1</sup>, Ge Zhang<sup>1</sup>
+							Wenhu Chen<span class="superscript">1</span>, Jie Fu<sup>1</sup>, Ge Zhang<sup>1</sup>
 						</p>
 						<h3 style="text-align: center" class="title is-4">Equal Technical Contributions</h3>
 						<p style="text-align: center">
