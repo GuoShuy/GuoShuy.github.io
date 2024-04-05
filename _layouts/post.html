@@ -14,6 +14,8 @@ layout: default
 	<!-- The following needs to be inserted somewhere on the page for the player(s) to work. -->
 	<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.22.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bulma-extensions@6.2.7/bulma-quickview/dist/js/bulma-quickview.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/notebookjs/0.3.0/notebook.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	<style>
 	.superscript {
 		vertical-align: super;
@@ -148,7 +150,23 @@ layout: default
 				<div class="column is-four-fifths">
 					<h2 style="text-align: center" class="title is-3">SMS Law</h2>
 					<div class="content has-text-justified">
-						<iframe src="https://nbviewer.org/github/GuoShuy/guoshuy.github.io/blob/master/SMS_LAWS.ipynb" width="100%" height="400px"></iframe>
+						<div id="notebook"></div>
+						<script>
+							// 设置 notebookjs 用于渲染 markdown 的渲染器
+							nb.markdown = marked;
+					
+							fetch('https://raw.githubusercontent.com/GuoShuy/guoshuy.github.io/master/SMS_LAWS.ipynb')
+								.then(response => response.json())
+								.then(data => {
+									var notebook = nb.parse(data); // 解析 Notebook 数据
+									var rendered = notebook.render(); // 渲染 Notebook
+									document.getElementById('notebook').appendChild(rendered); // 将渲染好的内容添加到页面容器中
+								})
+								.catch(error => {
+									console.error('Error loading the notebook:', error);
+									document.getElementById('notebook').innerHTML = '<p>Error loading notebook. See console for details.</p>';
+								});
+						</script>
 					</div>
 				</div>
 			</div>
